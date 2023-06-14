@@ -1,0 +1,27 @@
+.navbar {
+    background-color: #FFA8D2;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    margin-left: -8px;
+    width: 100%; /* Full width */
+    height: 83px;
+    text-align: center;
+}
+
+.do-bold {
+    color: #370000;
+}
+
+.title {
+    color: #FFFFFF;
+    font-family: 'Jost*', sans-serif;
+    font-size: 40px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 10px;
+    height: 83px;
+}
+
+.branch-img-r {
+    padding-left: 2px;
+}

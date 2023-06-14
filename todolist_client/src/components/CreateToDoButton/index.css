@@ -1,0 +1,31 @@
+.create-to-do-button {
+    font-family: 'Jost*', sans-serif;
+    font-size: 25px;
+    background-color: #FFFFFF ;
+    width: 257px;
+    height: 52px;
+    border-radius: 5px;
+    border: 2px solid #370000;
+    color: #370000;
+    padding: 0;
+    text-align: left;
+}
+
+.create-to-do-div {
+    margin-top: 7px;
+    display: flex;
+    justify-content: center;
+}
+
+.create-to-do-button:hover {
+    background-color: #FFC7D4;
+}
+
+.create-to-do-button:active {
+    background-color: #BB8995;
+}
+
+.create-to-do-text {
+    margin-left: 10px;
+    line-height: 34px;
+}
