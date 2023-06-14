@@ -1,0 +1,39 @@
+.todolist-div {
+    padding: 0;
+    margin-top: 7px;
+    width: 257px;
+    height: 52px;
+    border-radius: 2px;
+    display: flex;
+}
+
+/* deixar rosa quando selecionado ffe0ef*/
+.todolist-div:hover {
+    background-color: #FFE0EF ;
+}
+
+.todolist-text-div {
+    width: 225px;
+}
+
+.todolist-text {
+    font-family: 'Jost*', sans-serif;
+    font-size: 25px;
+    color: #370000;
+    margin-top: 10px;
+    margin-left: 18px;
+    line-height: 33px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.todolist-three-dots {
+    width: 25px;
+    height: 52px;
+}
+
+.todolist-three-dots-image {
+    padding-top: 14px;
+}
+

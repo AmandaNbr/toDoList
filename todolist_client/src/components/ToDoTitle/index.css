@@ -1,0 +1,13 @@
+.title-div {
+    margin: 9px 0 11px 50px;
+    width: 100%;
+    text-align: center;
+    background-color: purple;
+}
+
+.title-text {
+    font-family: 'Jost*', sans-serif;
+    font-size: 25px;
+    color: #370000;
+}
+
