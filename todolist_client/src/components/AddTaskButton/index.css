@@ -1,0 +1,40 @@
+.add-task-button-div {
+    margin-left: 50px;
+}
+
+.add-task-button {
+    font-family: 'Jost*', sans-serif;
+    font-size: 25px;
+    background-color: #FFFFFF ;
+    width: 160px;
+    height: 52px;
+    border-radius: 2px;
+    border: 1px solid #370000;
+    color: #370000;
+    padding: 0;
+    text-align: left;
+    cursor: pointer;
+}
+
+.add-task-div {
+    margin-top: 9px;
+    display: flex;
+    justify-content: center;
+}
+
+.add-task-button:hover {
+    background-color: #FFC7D4;
+}
+
+.add-task-button:active {
+    background-color: #BB8995;
+}
+
+.add-task-image {
+    margin-top: -1px;
+}
+
+.add-task-text {
+    margin-left: 10px;
+    line-height: 33px;
+}

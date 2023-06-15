@@ -2,9 +2,12 @@
     padding: 0;
     margin-top: 7px;
     width: 257px;
+    max-height: 104px;
     height: 52px;
     border-radius: 2px;
     display: flex;
+    word-break: break-all;
+    cursor: pointer;
 }
 
 /* deixar rosa quando selecionado ffe0ef*/
