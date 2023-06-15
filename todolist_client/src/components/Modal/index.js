@@ -14,7 +14,7 @@ export function Modal({modal, setModal}){
             <div className="modal-header">
                 <span className="modal-title">
                     What's the title of your <br/> 
-                    list?
+                    To Do List?
                 </span>
                 <button className="close-button" onClick={toggleModal}>
                     <span>
