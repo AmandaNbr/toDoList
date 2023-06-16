@@ -3,7 +3,7 @@ import './index.css';
 
 export function ToDoList({ title, id }) {
   const handleDelete = () => {
-    // Lógica de exclusão da lista
+    console.log('oii')
   };
 
   return (
@@ -17,9 +17,11 @@ export function ToDoList({ title, id }) {
                     <img src="assets/images/three-dots.png" className="todolist-three-dots-image" alt="three-dots"/>
             </div> */}
 
-      <div className="task-x">
-        <button className="task-x-button" onClick={handleDelete}>
-          <img className="task-x-image" src="assets/images/x.png" alt="x" />
+      <div className="todolist-x">
+        <button className="todolist-x-button" onClick={handleDelete}>
+          <span className="todolist-x-span">
+            <img className="todolist-x-image" src="assets/images/x.png" alt="x" />
+          </span>
         </button>
       </div>
     </div>

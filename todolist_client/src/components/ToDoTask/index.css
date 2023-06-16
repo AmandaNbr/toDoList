@@ -32,14 +32,39 @@
 }
 
 .task-x {
-    width: 25px;
+    display: flex;
+    width: 35px;
     height: 52px;
-    margin-right: 10px;
-    cursor: pointer;
 }
 
-.task-x-image {
-    padding-top: 14px;
-    padding-right: 20px;
+.task-x-button {
+    background: none;
+    border: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    margin-top: 13px;
+    margin-right: 20px;
+  }
+  
+.task-x-span {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    overflow: hidden;
 }
+  
+.task-x-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
 
