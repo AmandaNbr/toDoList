@@ -31,12 +31,12 @@
     text-overflow: ellipsis;
 }
 
-.todolist-three-dots {
+.todolist-x {
     width: 25px;
     height: 52px;
 }
 
-.todolist-three-dots-image {
+.todolist-x-image {
     padding-top: 14px;
 }
 

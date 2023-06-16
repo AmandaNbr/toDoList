@@ -12,9 +12,12 @@ export function ToDoTask(){
                         </span>
                     </label>
             </div>
-            <div className="task-three-dots">
-                {/* FAZER O DROPDOWN */}
+            {/* <div className="task-three-dots">
+                FAZER O DROPDOWN
                 <  img src="assets/images/three-dots.png" className="task-three-dots-image" alt="three-dots"></img>
+            </div> */}
+            <div className="task-x">
+                <img className="task-x-image" src="assets/images/x.png"  alt="x"/>
             </div>
         </div>
     )

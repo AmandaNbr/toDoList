@@ -7,9 +7,12 @@ export function ToDoList(){
             <div className="todolist-text-div">
                 <p className="todolist-text">To Do List Title</p>
             </div>
-            <div className="todolist-three-dots">
-                    {/* FAZER O DROPDOWN */}
-                    <img src="assets/images/three-dots.png" className="todolist-three-dots-image" alt="three-dots"></img>
+            {/* <div className="todolist-three-dots">
+                    FAZER O DROPDOWN
+                    <img src="assets/images/three-dots.png" className="todolist-three-dots-image" alt="three-dots"/>
+            </div> */}
+            <div className="task-x">
+                <img className="task-x-image" src="assets/images/x.png"  alt="x"/>
             </div>
         </div>
     )

@@ -31,14 +31,15 @@
     overflow: hidden;
 }
 
-.task-three-dots {
+.task-x {
     width: 25px;
     height: 52px;
     margin-right: 10px;
     cursor: pointer;
 }
 
-.task-three-dots-image {
+.task-x-image {
     padding-top: 14px;
+    padding-right: 20px;
 }
 
