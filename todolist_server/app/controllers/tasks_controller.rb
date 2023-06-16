@@ -1,9 +1,10 @@
 class TasksController < ApplicationController
+  before_action :set_to_do_list
   before_action :set_task, only: %i[ show update destroy ]
 
   # GET /tasks
   def index
-    @tasks = Task.all
+    @tasks = @to_do_list.tasks
 
     render json: @tasks
   end
@@ -15,10 +16,10 @@ class TasksController < ApplicationController
 
   # POST /tasks
   def create
-    @task = Task.new(task_params)
+    @task = @to_do_list.tasks.new(task_params)
 
     if @task.save
-      render json: @task, status: :created, location: @task
+      render json: @task, status: :created
     else
       render json: @task.errors, status: :unprocessable_entity
     end
@@ -41,11 +42,16 @@ class TasksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
-      @task = Task.find(params[:id])
+      @task = @to_do_list.tasks.find(params[:id])
+    end
+
+    def set_to_do_list
+      @to_do_list = ToDoList.find(params[:to_do_list_id])
     end
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:description, :isDone, :to_do_list_id)
+      params.require(:task).permit(:description, :is_done)
+      # params.require(:task).permit(:description, :isDone, :to_do_list_id) 
     end
 end
