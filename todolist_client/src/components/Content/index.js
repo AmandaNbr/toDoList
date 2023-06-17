@@ -37,21 +37,21 @@ export function Content() {
 
   async function handleCreateToDoList(title) {
     await createToDoList(title).then((list) => {
-      setToDoLists([...toDoLists, list]);
+      setToDoLists((prevLists) => [...prevLists, list]);
       setSelectedList(list); 
     });
   }
 
   async function handleDeleteToDoList(id) {
     await deleteToDoList(id).then(() => {
-      setToDoLists(toDoLists.filter((toDoList) => toDoList.id !== id));
+      setToDoLists((prevLists) => prevLists.filter((toDoList) => toDoList.id !== id));
       setSelectedList(null);
     });
   }
 
   async function handleCreateTask(description) {
     await createTask(description, selectedList.id).then((task) => {
-      setTaskList([...taskList, task]);
+      setTaskList((prevTasks) => [...prevTasks, task]);
     });
   }
 
@@ -65,7 +65,7 @@ export function Content() {
 
   async function handleDeleteTask(taskId) {
     await deleteTask(selectedList.id, taskId).then(() => {
-      setTaskList(taskList.filter((task) => task.id !== taskId));
+      setTaskList((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
     });
   }
 
@@ -74,7 +74,7 @@ export function Content() {
       <div className="button-div">
         <CreateToDoButton handleCreateToDoList={handleCreateToDoList}/>
         {toDoLists.map((toDoList) => (
-          <ToDoList selectedList={selectedList} toDoList={toDoList} title={toDoList.title} id={toDoList.id} handleSelectList={handleSelectList} handleDeleteToDoList={handleDeleteToDoList}/>
+          <ToDoList key={toDoList.id} selectedList={selectedList} toDoList={toDoList} title={toDoList.title} id={toDoList.id} handleSelectList={handleSelectList} handleDeleteToDoList={handleDeleteToDoList}/>
         ))}
       </div>
       {toDoLists.length > 0 ? (

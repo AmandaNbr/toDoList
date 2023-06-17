@@ -22,6 +22,7 @@
     justify-content: center;
 }
 
+
 .add-task-button:hover {
     background-color: #FFC7D4;
 }
@@ -41,11 +42,16 @@
 
 .input-text-div {
     display: flex;
-    margin-left: 50px;
+    margin-left: 40px;
     height: 52px;
     width: 95%;
     margin-bottom: 40px;
     border: 1px solid #370000;
+}
+
+.input-task-text:focus {
+    outline: none;
+    border: none;
 }
 
 .input-task-text {
