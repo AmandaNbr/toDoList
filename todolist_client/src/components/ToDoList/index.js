@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import './index.css';
+import { deleteToDoList } from "../../api/toDoList";
 
-export function ToDoList({ title, id }) {
-  const handleDelete = () => {
-    console.log('oii')
-  };
+export function ToDoList({ title, id, handleDeleteToDoList}) {
+
+  const deleteList = async () => {
+    await handleDeleteToDoList(id)
+  }
 
   return (
     <div className="todolist-div">
@@ -12,13 +14,8 @@ export function ToDoList({ title, id }) {
         <p className="todolist-text">{title}</p>
       </div>
 
-    {/* <div className="todolist-three-dots">
-                    FAZER O DROPDOWN
-                    <img src="assets/images/three-dots.png" className="todolist-three-dots-image" alt="three-dots"/>
-            </div> */}
-
       <div className="todolist-x">
-        <button className="todolist-x-button" onClick={handleDelete}>
+        <button className="todolist-x-button" onClick={deleteList}>
           <span className="todolist-x-span">
             <img className="todolist-x-image" src="assets/images/x.png" alt="x" />
           </span>

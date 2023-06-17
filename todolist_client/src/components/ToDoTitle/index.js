@@ -1,10 +1,10 @@
 import React from "react";
 import './index.css'
 
-export function ToDoTitle(){
+export function ToDoTitle({ title }){
     return(
         <div className="title-div">
-            <span className="title-text">To Do List Title</span>
+            <span className="title-text">{title}</span>
         </div>
     )
 }

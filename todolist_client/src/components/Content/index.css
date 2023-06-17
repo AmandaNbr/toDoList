@@ -2,16 +2,20 @@
     display: flex;
     margin: 200px 15% 0 15%;
     height: 1718px;
+    background-color: aqua;
 }
 
 .button-div {
     width: 257px;
+    background-color: violet;
 }
 
 .content-todo-div {
     width: 100%;
+    background-color: purple;
 }
 
 .content-empty-todo-div {
     width: 100%;
+    background-color: purple;
 }

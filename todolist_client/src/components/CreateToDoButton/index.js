@@ -2,18 +2,14 @@ import React, { useState } from "react";
 import './index.css'
 import { Modal } from "../Modal";
 
-export function CreateToDoButton(){
+export function CreateToDoButton({handleCreateToDoList}){
 
     const [modal, setModal] = useState(false)
-
-    const toggleModal = () => {
-        setModal(!modal)
-    }
 
     return(
         <>
         <div className="crete-button-div">
-            <button className="create-to-do-button" onClick={toggleModal}>
+            <button className="create-to-do-button" onClick={() => setModal(!modal)}>
                 <div className="create-to-do-div">
                     <span className="create-to-do-image">
                         <img src="assets/images/plus.png" alt="plus"></img>
@@ -25,8 +21,7 @@ export function CreateToDoButton(){
             </button>
         </div>
         
-        {modal && <Modal modal={modal} setModal={(bool) => setModal(bool)} />}
-        
+        {modal && <Modal modal={modal} setModal={(bool) => setModal(bool)} handleCreateToDoList={handleCreateToDoList}/>}
         </>
     )
 }

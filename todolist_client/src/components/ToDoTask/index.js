@@ -1,9 +1,9 @@
 import React from "react";
 import "./index.css";
 
-export function ToDoTask() {
-  const handleDelete = () => {
-    console.log("oii");
+export function ToDoTask({ description, taskId, listId, handleDelete }) {
+  const deleteTask = () => {
+    handleDelete(taskId, listId)
   };
 
   return (
@@ -17,17 +17,12 @@ export function ToDoTask() {
             name="task1"
           />
           <span className="task-text">
-            Task n Task n Task n Task n Task n Task n Task n Task n Task n Task
-            n Task n
+            {description}
           </span>
         </label>
       </div>
-      {/* <div className="task-three-dots">
-                FAZER O DROPDOWN
-                <  img src="assets/images/three-dots.png" className="task-three-dots-image" alt="three-dots"></img>
-            </div> */}
       <div className="task-x">
-        <button className="task-x-button" onClick={handleDelete}>
+        <button className="task-x-button" onClick={deleteTask}>
           <span className="task-x-span">
             <img
               className="task-x-image"
