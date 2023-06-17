@@ -11,13 +11,10 @@ export function ToDoTask({ handleUpdateTask, task, description, handleDeleteTask
     }
 
     useEffect(() => {
-      if (task.is_done) {
+      if (task && task.is_done) {
         setIsChecked(true)
-        console.log("HAHAHAH")
       }
-    }, [])
-
-    console.log(task)
+    }, [task])
 
   return (
     <div className="task-div">

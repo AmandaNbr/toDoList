@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import { ToDoTask } from "../ToDoTask";
 
 export function AddTaskButton({ handleCreateTask }) {
   const [showInput, setShowInput] = useState(true);

@@ -9,7 +9,7 @@ export function Modal({ modal, setModal, handleCreateToDoList }) {
   };
 
   const createList = async () => {
-    await handleCreateToDoList(title.trim())
+    await handleCreateToDoList(title.trim() || "")
 
     toggleModal();
   };

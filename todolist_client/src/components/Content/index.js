@@ -11,13 +11,13 @@ import { createTask, createToDoList, deleteTask, deleteToDoList, getTasks, getTo
 export function Content() {
   const [toDoLists, setToDoLists] = useState([]);
   const [taskList, setTaskList] = useState([]);
-  const [selectedList, setSelectedList] = useState({});
+  const [selectedList, setSelectedList] = useState(null); // Use null as the default value
 
   useEffect(() => {
     async function loadToDoList() {
       getToDoList().then((toDoLists) => {
         setToDoLists(toDoLists);
-        setSelectedList(toDoLists[0]);
+        setSelectedList(toDoLists[0] || null); // Update the selectedList with the first item or null
       });
     }
 
@@ -25,39 +25,48 @@ export function Content() {
   }, []);
 
   useEffect(() => {
-    if (selectedList.id) {
+    if (selectedList && selectedList.id) {
       async function loadTaskList() {
         getTasks(selectedList.id).then((tasks) => {
           setTaskList(tasks);
         });
       }
-
       loadTaskList();
     }
   }, [selectedList]);
 
   async function handleCreateToDoList(title) {
-    await createToDoList(title).then((list) => {setToDoLists([...toDoLists, list])}) 
+    await createToDoList(title).then((list) => {
+      setToDoLists([...toDoLists, list]);
+      setSelectedList(list); // Set the selectedList to the newly created list
+    });
   }
 
   async function handleDeleteToDoList(id) {
-    await deleteToDoList(id).then(() => setToDoLists(toDoLists.filter(toDoLists => toDoLists.id !== id))) 
+    await deleteToDoList(id).then(() => {
+      setToDoLists(toDoLists.filter((toDoList) => toDoList.id !== id));
+      setSelectedList(null); // Reset the selectedList
+    });
   }
 
   async function handleCreateTask(description) {
-    await createTask(description, selectedList.id).then((task) => {setTaskList([...taskList, task])}) 
+    await createTask(description, selectedList.id).then((task) => {
+      setTaskList([...taskList, task]);
+    });
   }
 
   function handleSelectList(list) {
-    setSelectedList(list)
+    setSelectedList(list);
   }
 
   async function handleUpdateTask(description, isDone, taskId) {
-    await updateTask(description, selectedList.id, isDone, taskId)
+    await updateTask(description, selectedList.id, isDone, taskId);
   }
 
   async function handleDeleteTask(taskId) {
-    await deleteTask(selectedList.id, taskId).then(() => setTaskList(taskList.filter(task => task.id !== taskId))) 
+    await deleteTask(selectedList.id, taskId).then(() => {
+      setTaskList(taskList.filter((task) => task.id !== taskId));
+    });
   }
 
   return (

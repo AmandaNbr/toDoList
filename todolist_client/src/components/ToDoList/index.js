@@ -1,6 +1,4 @@
-import React, { useState } from "react";
 import './index.css';
-import { deleteToDoList } from "../../api/toDoList";
 
 export function ToDoList({ selectedList, toDoList, title, id, handleDeleteToDoList, handleSelectList}) {
 
