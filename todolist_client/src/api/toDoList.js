@@ -22,7 +22,6 @@ export async function getToDoList() {
   return axios
     .get("http://localhost:3000/to_do_lists/")
     .then((response) => {
-      console.log('response.data', response.data)
       return response.data
     })
     .catch((error) => {

@@ -11,13 +11,13 @@ import { createTask, createToDoList, deleteTask, deleteToDoList, getTasks, getTo
 export function Content() {
   const [toDoLists, setToDoLists] = useState([]);
   const [taskList, setTaskList] = useState([]);
-  const [selectedList, setSelectedList] = useState(null); // Use null as the default value
+  const [selectedList, setSelectedList] = useState(null); 
 
   useEffect(() => {
     async function loadToDoList() {
       getToDoList().then((toDoLists) => {
         setToDoLists(toDoLists);
-        setSelectedList(toDoLists[0] || null); // Update the selectedList with the first item or null
+        setSelectedList(toDoLists[0] || null); 
       });
     }
 
@@ -38,14 +38,14 @@ export function Content() {
   async function handleCreateToDoList(title) {
     await createToDoList(title).then((list) => {
       setToDoLists([...toDoLists, list]);
-      setSelectedList(list); // Set the selectedList to the newly created list
+      setSelectedList(list); 
     });
   }
 
   async function handleDeleteToDoList(id) {
     await deleteToDoList(id).then(() => {
       setToDoLists(toDoLists.filter((toDoList) => toDoList.id !== id));
-      setSelectedList(null); // Reset the selectedList
+      setSelectedList(null);
     });
   }
 
