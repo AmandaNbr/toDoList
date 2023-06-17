@@ -6,7 +6,7 @@ import { ToDoTask } from "../ToDoTask";
 import { ToDoTitle } from "../ToDoTitle";
 import { ToDoList } from "../ToDoList";
 import { AddTaskButton } from "../AddTaskButton";
-import { createToDoList, deleteToDoList, getTasks, getToDoList } from "../../api/toDoList";
+import { createTask, createToDoList, deleteTask, deleteToDoList, getTasks, getToDoList, updateTask } from "../../api/toDoList";
 
 export function Content() {
   const [toDoLists, setToDoLists] = useState([]);
@@ -44,33 +44,37 @@ export function Content() {
     await deleteToDoList(id).then(() => setToDoLists(toDoLists.filter(toDoLists => toDoLists.id !== id))) 
   }
 
-  // async function createTask(description) {
-  //   await createTask(description).then((task) => {setTaskList([...taskList, task])}) 
-  // }
+  async function handleCreateTask(description) {
+    await createTask(description, selectedList.id).then((task) => {setTaskList([...taskList, task])}) 
+  }
 
-  //async function updateTask(taskId, newStatus) {
+  function handleSelectList(list) {
+    setSelectedList(list)
+  }
 
-  //}
+  async function handleUpdateTask(description, isDone, taskId) {
+    await updateTask(description, selectedList.id, isDone, taskId)
+  }
 
-  //async function deleteTask(taskId, newStatus) {
-
-  //}
+  async function handleDeleteTask(taskId) {
+    await deleteTask(selectedList.id, taskId).then(() => setTaskList(taskList.filter(task => task.id !== taskId))) 
+  }
 
   return (
     <div className="content">
       <div className="button-div">
         <CreateToDoButton handleCreateToDoList={handleCreateToDoList}/>
         {toDoLists.map((toDoList) => (
-          <ToDoList title={toDoList.title} id={toDoList.id} handleDeleteToDoList={handleDeleteToDoList}/>
+          <ToDoList selectedList={selectedList} toDoList={toDoList} title={toDoList.title} id={toDoList.id} handleSelectList={handleSelectList} handleDeleteToDoList={handleDeleteToDoList}/>
         ))}
       </div>
       {toDoLists.length > 0 ? (
         <div className="content-todo-div">
           <ToDoTitle title={selectedList.title || ""} />
           {taskList.map((task) => (
-            <ToDoTask description={task.description} />
+            <ToDoTask key={task.description} handleUpdateTask={handleUpdateTask} task={task} description={task.description} handleDeleteTask={handleDeleteTask}/>
           ))}
-          <AddTaskButton />
+          <AddTaskButton handleCreateTask={handleCreateTask}/>
         </div>
       ) : (
         <div className="content-empty-todo-div">

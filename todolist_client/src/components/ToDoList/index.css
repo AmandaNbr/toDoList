@@ -8,12 +8,24 @@
     display: flex;
     word-break: break-all;
     cursor: pointer;
-    background-color: aquamarine;
 }
 
 /* deixar rosa quando selecionado ffe0ef*/
 .todolist-div:hover {
-    background-color: #FFE0EF ;
+    background-color: #FFE0EF;
+}
+
+.todolist-div-selected {
+    background-color: #FFE0EF;
+    padding: 0;
+    margin-top: 7px;
+    width: 257px;
+    max-height: 104px;
+    height: 52px;
+    border-radius: 2px;
+    display: flex;
+    word-break: break-all;
+    cursor: pointer;
 }
 
 .todolist-text-div {

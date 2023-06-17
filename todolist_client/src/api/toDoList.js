@@ -48,11 +48,20 @@ export async function createTask(description, listId) {
     });
 }
 
-export async function deleteTask(taskId, listId) {
+export async function deleteTask(listId, taskId) {
   return axios
-    .delete(`http://localhost:3000/to_do_lists/${listId}/tasks/$${taskId}`)
+    .delete(`http://localhost:3000/to_do_lists/${listId}/tasks/${taskId}`)
     .then(() => true)
     .catch((error) => {
       console.error("Error deleting To Do List:", error);
     });
+}
+
+export async function updateTask(description, listId, isDone, taskId) {
+    return axios
+      .patch(`http://localhost:3000/to_do_lists/${listId}/tasks/${taskId}`, { description, is_done: isDone })
+      .then((response) => response.data)
+      .catch((error) => {
+        console.error("Error updating To Do List:", error);
+      });
 }

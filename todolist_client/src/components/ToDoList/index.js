@@ -2,14 +2,16 @@ import React, { useState } from "react";
 import './index.css';
 import { deleteToDoList } from "../../api/toDoList";
 
-export function ToDoList({ title, id, handleDeleteToDoList}) {
+export function ToDoList({ selectedList, toDoList, title, id, handleDeleteToDoList, handleSelectList}) {
 
   const deleteList = async () => {
     await handleDeleteToDoList(id)
   }
 
+  const isSelectedList = selectedList.id === id;
+
   return (
-    <div className="todolist-div">
+    <div className={isSelectedList ? "todolist-div-selected" : "todolist-div"} onClick={() => handleSelectList(toDoList)}>
       <div className="todolist-text-div">
         <p className="todolist-text">{title}</p>
       </div>

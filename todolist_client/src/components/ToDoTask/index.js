@@ -1,20 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./index.css";
 
-export function ToDoTask({ description, taskId, listId, handleDelete }) {
-  const deleteTask = () => {
-    handleDelete(taskId, listId)
-  };
+export function ToDoTask({ handleUpdateTask, task, description, handleDeleteTask }) {
+    const [isChecked,setIsChecked] = useState(false)
+
+    function handleChange(event) {
+        const checked = event.target.checked;
+        setIsChecked(checked)
+        handleUpdateTask(description, checked, task.id)
+    }
+
+    useEffect(() => {
+      if (task.is_done) {
+        setIsChecked(true)
+        console.log("HAHAHAH")
+      }
+    }, [])
+
+    console.log(task)
 
   return (
     <div className="task-div">
       <div className="task-checkbox">
         <label className="label-checkbox">
           <input
+            onChange={handleChange}
             className="checkmark"
             type="checkbox"
             id="task1"
             name="task1"
+            checked={isChecked}
           />
           <span className="task-text">
             {description}
@@ -22,7 +37,7 @@ export function ToDoTask({ description, taskId, listId, handleDelete }) {
         </label>
       </div>
       <div className="task-x">
-        <button className="task-x-button" onClick={deleteTask}>
+        <button className="task-x-button" onClick={() => handleDeleteTask(task.id)}>
           <span className="task-x-span">
             <img
               className="task-x-image"

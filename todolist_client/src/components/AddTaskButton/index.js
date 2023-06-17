@@ -3,10 +3,9 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import { ToDoTask } from "../ToDoTask";
 
-export function AddTaskButton() {
+export function AddTaskButton({ handleCreateTask }) {
   const [showInput, setShowInput] = useState(true);
   const [taskText, setTaskText] = useState("");
-  const [tasks, setTasks] = useState([]);
   const inputRef = useRef(null);
 
   const addInput = () => {
@@ -18,11 +17,11 @@ export function AddTaskButton() {
   };
 
   const handleAddTask = () => {
+
+    handleCreateTask(taskText)
     if (taskText === "") {
       setShowInput(true);
     } else {
-      setTasks([...tasks, taskText]);
-      setTaskText("");
       setShowInput(true);
     }
   };
@@ -35,25 +34,12 @@ export function AddTaskButton() {
   useEffect(() => {
     if (!showInput) {
       inputRef.current.focus();
+      inputRef.current.value = "";
     }
-  }, [showInput]);
-
-  useEffect(() => {
-    return () => {
-      if (!showInput) {
-        setShowInput(true);
-      }
-    };
   }, [showInput]);
 
   return (
     <div>
-      {tasks.map((task, index) => (
-        <div key={index}>
-          <ToDoTask /> {task} {console.log(tasks)}
-        </div>
-      ))}
-
       {showInput ? (
         <div className="add-task-button-div">
           <button className="add-task-button" onClick={addInput}>
@@ -62,7 +48,7 @@ export function AddTaskButton() {
                 <img src="assets/images/verify.png" alt="verify"></img>
               </span>
               <span className="add-task-text">
-                Add task {console.log(tasks)}
+                Add task 
               </span>
             </div>
           </button>
